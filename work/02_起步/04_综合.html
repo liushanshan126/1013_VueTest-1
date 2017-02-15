@@ -21,7 +21,7 @@
 <div id="app">
   <input type="text" v-model="inputTodo" @keyup.enter="addTodo">
   <ul>
-    <li v-for="todo in todos">
+    <li v-for="todo in todos" track-by="$index">
       {{todo}}<button @click="deleteTodo($index)">X</button>
     </li>
   </ul>
