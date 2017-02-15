@@ -18,10 +18,55 @@
 9. orderBy : 对数组进行排序
 -->
 <div id="example">
+  <p>{{msg | capitalize}}</p>
+  <p>{{msg | uppercase}}</p>
+  <p>{{msg | lowercase}}</p>
+
+  <p>{{123123.123123 | currency '￥'}}</p>
+  <p>{{count}} {{count | pluralize 'item'}}</p>
+  <p>{{persons}}---{{persons | json}}</p>
+
+  <hr>
+  <ul>
+    <li v-for="p in persons">{{p | json}}</li>
+  </ul>
+
+  <ul>
+    <li v-for="p in persons | limitBy 3 1">{{p | json}}</li>
+  </ul>
+
+  <ul>
+    <li v-for="p in persons | filterBy 'a' in 'name'">{{p | json}}</li>
+  </ul>
+
+  <ul>
+    <li v-for="p in persons | orderBy 'age' -1">{{p | json}}</li>
+  </ul>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
+  new Vue({
+    el : '#example',
+    data : {
+      msg: 'nba I Love this Game!',
+      count: 2,
+      persons: [
+        {name:'Tom1', age:15},
+        {name:'Jack', age:13},
+        {name:'Bob', age:11},
+        {name:'Cat', age:12},
+        {name:'Tom6', age:14}
+      ]
+    },
+    methods : {
+
+    },
+
+    computed : {
+
+    }
+  });
 </script>
 </body>
 </html>

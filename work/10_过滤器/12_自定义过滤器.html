@@ -24,10 +24,49 @@
 -->
 
 <div id="example">
+  <p>{{msg | wrap '天气很好' '今天很好'}}</p>
+  <p>{{text | wrap2 'aaaa' 'bbbb'}}</p>
+</div>
+
+<div id="example2">
+  <p>{{msg2 | wrap '天气很好222' '今天很好222'}}</p>
+  <p>{{text2 | wrap2 'aaaa' 'bbbb'}}</p>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
+  //1. 全局过滤器
+  Vue.filter('wrap', function (value, leftText, rightText) {
+
+    return leftText +' '+value+' '+rightText
+  })
+  new Vue({
+    el : '#example',
+    data : {
+      msg: '今天还好吗?',
+      text: 'i am here'
+    },
+    filters: {
+      wrap2(value, leftText, rightText) {
+        return leftText +' '+value.toUpperCase()+' '+rightText
+      }
+    }
+  });
+
+  new Vue({
+    el : '#example2',
+    data : {
+      msg2: '今天还好吗2222?',
+      text2: 'I will back'
+    },
+    methods : {
+
+    },
+
+    computed : {
+
+    }
+  });
 </script>
 </body>
 </html>
