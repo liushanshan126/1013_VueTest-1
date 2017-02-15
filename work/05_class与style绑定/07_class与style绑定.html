@@ -24,10 +24,24 @@
 -->
 
 <div id="demo">
+  <p :class="{classA: isA, classB: isB}">测试v-bind:class 对象语法</p>
+  <p :class="classArr">测试v-bind:class 数组语法</p>
+
+  <p :style="{color:activeColor, fontSize: fontSize + 'px'}">测试v-bind:style</p>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
+  new Vue({
+    el : '#demo',
+    data : {
+      isA: true,
+      isB: false,
+      classArr: ['classA', 'classB'],
+      activeColor: 'green',
+      fontSize: 20
+    }
+  });
 </script>
 </body>
 </html>
