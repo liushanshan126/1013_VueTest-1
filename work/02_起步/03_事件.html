@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>03_事件</title>
+</head>
+<body>
+<!--
+  1. 绑定监听的指令:
+    v-on:xxx="函数名或函数调用"
+    @xxx="函数名或函数调用"
+  2. 定义事件处理的函数:
+    methods : {
+        函数名 : function(){...}
+    }
+-->
+<div id="app">
+  <p>{{msg}}</p>
+  <button @click="reverse">倒序</button>
+</div>
+
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+  //创建viewmodel  m-v-vm
+  //data中的属性都会成为vue对象的属性, 会被添加get/set方法, 从而实现双向数据绑定
+  //methods中的方法都会成为vue对象的方法
+  new Vue({
+    el: '#app',
+    data: { //定义可变化的用来显示的数据
+      msg: '水来自海上'
+    },
+    methods: { //定义事件回调函数(方法)
+      reverse () {
+        console.log(this, this instanceof Vue)
+        this.msg = this.msg.split('').reverse().join('')
+      }
+    }
+  })
+</script>
+</body>
+</html>
