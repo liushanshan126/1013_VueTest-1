@@ -24,11 +24,31 @@
 -->
 
 <div id="demo">
+  <!--写一个类似v-text的指令: v-upper-text-->
+  <p v-text="msg"></p>
+  <p v-upper-text="msg"></p>
+  <p v-lower-text="msg"></p>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
+  Vue.directive("upper-text", function (value) {
+    //得到指令所在的标签, 并插入大写的值
+    this.el.innerHTML = value.toUpperCase()
+  })
 
+  new Vue({
+    el : '#demo',
+    data : {
+      msg: 'Use Vue So easy!'
+    },
+    directives: {
+      'lowerText': function (value) {
+        //得到指令所在的标签, 并插入小写的值
+        this.el.innerHTML = value.toLowerCase()
+      }
+    }
+  });
 </script>
 </body>
 </html>
