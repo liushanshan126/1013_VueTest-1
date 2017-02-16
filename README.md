@@ -142,6 +142,15 @@
     * 使用指令:
       v-my-directive='xxx'
 
+## git常用命令
+  * git init
+  * git add *
+  * git commit -m "message"
+  * git remote add origin url
+  * git push origin master
+  * git clone url
+  * git pull origin master
+  
 ## npm与package.json
 * npm
   * 全称: Node Package Manager
