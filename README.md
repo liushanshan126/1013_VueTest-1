@@ -1,16 +1,17 @@
+## Vue相关基本知识点
 * Vue.js是什么?
 	* 一位华裔前Google工程师开发的前端js库
-    * 与angular.js类似的是声明式开发，但性能高于angular，体积小很多, 比较适合移动端开发
-    * 它本身不是全能框架, 只关注UI, 如果需要router/ajax, 可以使用对应插件或使用别的库来实现
+  * 借鉴angular的声明式开发, 指令, 表达式语法, 但语法也要简洁很多, 体积也小很多,
+  * 借鉴react的组件化开发, 更适用于更大型应用的开发
+  * 它本身不是全能框架, 只关注UI, 如果需要router/ajax, 可以使用对应插件或使用别的库来实现
 * 基本使用
 	* 引入vue.js
 	* 创建Vue对象, 指定选项对象
-		* el : 指定dom标签容器的选择器
-		* data : 指定初始化状态属性数据的对象
-		        对象/函数(返回一个对象)
+		* el: 指定dom标签容器的选择器
+		* data: 指定初始化状态属性数据的对象/函数(返回一个对象)
 	* 页面中
 		* 使用v-model: 实现双向数据绑定
-		* 使用{{}} ; 显示数据
+		* 使用{{}}: 显示数据
 * Vue对象的选项
 	* el
 		* 指定dom标签容器的选择器
@@ -71,61 +72,70 @@
 		* v-el:xxx
 		* 读取得到标签对象: this.$els.xxx
 * 过滤器
-    * 内置
-        1. capitalize : 首字母大小
-        2. uppercase : 全部大写
-        3. lowercase : 全部小写
-        4. currency : 货币化
-        5. pluralize : 单数/复数处理
-        6. json : json格式化
-    
-        7. limitBy : 限定数组的部分元素(下标)
-        8. filterBy : 限定数组的部分元素(值)
-        9. orderBy : 对数组进行排序
-    * 自定义
-        1. 全局过滤器
-            Vue.filter('过滤器名', function(value, xxx, yyy) {
-                //处理逻辑
-                return result;
-            });
-        2. 局部过滤器
-            new Vue({
-                filters : {
-                    '过滤器名' : function(value, xxx, yyy) {
-                        //处理逻辑
-                        return result;
-                    }
-                }
-            })
-* 指令
-    * 内置
-        v:text : 更新元素的 textContent
-        v-html : 更新元素的 innerHTML
-        v-if : 如果为true, 当前标签才会输出到页面
-        v-else: 如果为false, 当前标签才会输出到页面
-        v-show : 通过控制display样式来控制显示/隐藏
-        v-for : 遍历数组/对象
-        v-on : 绑定事件监听, 一般简写为@
-        v-bind : 强制绑定解析表达式, 可以省略v-bind
-        v-model : 双向数据绑定
-        v-el : 为某个元素注册一个唯一标识, vue对象通过$els属性访问这个元素对象
-        v-cloak : 使用它防止闪现表达式, 与css配合: [v-cloak] { display: none }
-    * 自定义
-        1. 注册全局指令
-            Vue.directive('my-directive', function(value){
-                this.el.innerHTML = value.toUpperCase();
-            })
-        2. 注册局部指令
-            directives : {
-                'my-directive' : function(value) {
-                    this.el.innerHTML = value;
-                }
-            }
-        3. 使用指令:
-            v-my-directive='xxx'
-* 组件
-* todoList练习
+  * 内置
+    ```
+    1. capitalize : 首字母大小
+    2. uppercase : 全部大写
+    3. lowercase : 全部小写
+    4. currency : 货币化
+    5. pluralize : 单数/复数处理
+    6. json : json格式化
 
+    7. limitBy : 限定数组的部分元素(下标)
+    8. filterBy : 限定数组的部分元素(值)
+    9. orderBy : 对数组进行排序
+    ```
+  * 自定义
+    1. 全局过滤器
+      ```
+      Vue.filter('过滤器名', function(value, xxx, yyy) {
+        //处理逻辑
+        return result;
+      });
+      ```
+    2. 局部过滤器
+      ```
+      new Vue({
+        filters : {
+          '过滤器名' : function(value, xxx, yyy) {
+            //处理逻辑
+            return result;
+          }
+        }
+      })
+      ```
+* 指令
+  * 内置
+    ```
+    v:text : 更新元素的 textContent
+    v-html : 更新元素的 innerHTML
+    v-if : 如果为true, 当前标签才会输出到页面
+    v-else: 如果为false, 当前标签才会输出到页面
+    v-show : 通过控制display样式来控制显示/隐藏
+    v-for : 遍历数组/对象
+    v-on : 绑定事件监听, 一般简写为@
+    v-bind : 强制绑定解析表达式, 可以省略v-bind
+    v-model : 双向数据绑定
+    v-el : 为某个元素注册一个唯一标识, vue对象通过$els属性访问这个元素对象
+    v-cloak : 使用它防止闪现表达式, 与css配合: [v-cloak] { display: none }
+    ```
+  * 自定义
+    1. 注册全局指令
+      ```
+      Vue.directive('my-directive', function(value){
+        this.el.innerHTML = value.toUpperCase();
+      })
+      ```
+    2. 注册局部指令
+      ```
+      directives : {
+        'my-directive' : function(value) {  //也可以为: 'myDirective'
+          this.el.innerHTML = value;
+        }
+      }
+      ```
+    3. 使用指令:
+      v-my-directive='xxx'
 
 ## npm与package.json
 * npm
@@ -147,6 +157,6 @@
   * 重要信息:
     * name: 当前包名
     * version: 当前包版本号
-    * scripts: n个可执行的命令
+    * scripts: n个可执行的npm命令
     * dependencies: n个运行依赖的包
     * devDependencies: n个开发编译依赖的包
