@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <title>15_动画</title>
   <style>
+
     /* 必需 */
-    .xxx-transition {
-      transition: all 5s ease;
+    .expand-transition {
+      transition: all .3s ease;
       height: 30px;
       padding: 10px;
       background-color: #eee;
       overflow: hidden;
     }
-
     /* .expand-enter 定义进入的开始状态 */
     /* .expand-leave 定义离开的结束状态 */
-    .xxx-enter, .xxx-leave {
+    .expand-enter, .expand-leave {
       height: 0;
       padding: 0 10px;
       opacity: 0;
@@ -24,14 +24,14 @@
 </head>
 <body>
 <div id="demo">
-  <div v-if="show" transition="xxx">hello</div>
+  <div v-if="show" :transition="expand">hello</div>
   <button @click="show=!show">切换</button>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
   //设置动画过程中的钩子函数, 监听动画的过程
-  Vue.transition('xxx', {
+  Vue.transition('expand', {
 
     beforeEnter: function (el) {
       console.log('beforeEnter()');
