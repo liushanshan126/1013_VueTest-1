@@ -86,14 +86,14 @@
     9. orderBy : 对数组进行排序
     ```
   * 自定义
-    1. 全局过滤器
+    * 全局过滤器
       ```
       Vue.filter('过滤器名', function(value, xxx, yyy) {
         //处理逻辑
         return result;
       });
       ```
-    2. 局部过滤器
+    * 局部过滤器
       ```
       new Vue({
         filters : {
@@ -120,13 +120,13 @@
     v-cloak : 使用它防止闪现表达式, 与css配合: [v-cloak] { display: none }
     ```
   * 自定义
-    1. 注册全局指令
+    * 注册全局指令
       ```
       Vue.directive('my-directive', function(value){
         this.el.innerHTML = value.toUpperCase();
       })
       ```
-    2. 注册局部指令
+    * 注册局部指令
       ```
       directives : {
         'my-directive' : function(value) {  //也可以为: 'myDirective'
@@ -134,7 +134,7 @@
         }
       }
       ```
-    3. 使用指令:
+    * 使用指令:
       v-my-directive='xxx'
 
 ## npm与package.json
