@@ -95,6 +95,7 @@
       });
       ```
     * 局部过滤器
+    
       ```
       new Vue({
         filters : {
@@ -107,6 +108,7 @@
       ```
 * 指令
   * 内置
+  
     ```
     v:text : 更新元素的 textContent
     v-html : 更新元素的 innerHTML
@@ -122,12 +124,14 @@
     ```
   * 自定义
     * 注册全局指令
+    
       ```
       Vue.directive('my-directive', function(value){
         this.el.innerHTML = value.toUpperCase();
       })
       ```
     * 注册局部指令
+    
       ```
       directives : {
         'my-directive' : function(value) {  //也可以为: 'myDirective'
