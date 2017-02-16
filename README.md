@@ -87,6 +87,7 @@
     ```
   * 自定义
     * 全局过滤器
+    
       ```
       Vue.filter('过滤器名', function(value, xxx, yyy) {
         //处理逻辑
