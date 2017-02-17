@@ -17,6 +17,7 @@
 		* 指定dom标签容器的选择器
 		* Vue就会管理对应的标签及其子标签
 	* data
+	  * {...}, function() {return {...}}
 		* 指定初始化状态属性数据的对象
 		* vue对象可以直接访问其属性
 		* 页面中可以直接访问使用
@@ -40,7 +41,8 @@
 
 * 扩展数组
 	* $remove(item) : 删除数组中对应的元素
-	* $set(index, ele) : 给数组中指定下标指定对应的元素 
+	* $set(index, ele) : 给数组中指定下标指定对应的元素
+	* vue重写了数组的方法, 实现对数组的操作的监视
 
 * 页面指令
 	* v-text/v-html: 指定标签体
@@ -143,7 +145,7 @@
       v-my-directive='xxx'
 
 ## git常用命令
-  * git init
+  * git init: 初始化本地仓库(.git文件)
   * git add *
   * git commit -m "message"
   * git remote add origin url
