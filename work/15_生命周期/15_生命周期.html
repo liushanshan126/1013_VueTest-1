@@ -5,11 +5,50 @@
   <title>Title</title>
 </head>
 <body>
-<div>
+<div id="demo">
+  <p>{{msg}}</p>
+  <button @click="destroyVM">销毁vm</button>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
+  new Vue({
+    el : '#demo',
+    data : {
+      msg: 'atguigu'
+    },
+    methods : {
+      destroyVM() {
+        alert('------')
+        this.$destroy()
+      }
+    },
+
+    created() {
+      console.log('create()')
+      //设置循环定时器
+      setInterval(() => {
+        this.msg = new Date().toLocaleString()
+      }, 1000)
+      //可以在此发送ajax请求
+    },
+    beforeCompile() {
+      console.log('beforeCompile()')
+    },
+    compiled() {
+      console.log('compiled()')
+    },
+    ready() {
+      console.log('ready()')
+      //也可以在些发送ajax请求
+    },
+    beforeDestroy() {
+      console.log('beforeDestroy()')
+    },
+    destroyed() {
+      console.log('destroyed()')
+    }
+  });
 </script>
 </body>
 </html>
