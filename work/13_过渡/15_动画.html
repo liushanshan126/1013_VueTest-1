@@ -5,17 +5,16 @@
   <title>15_动画</title>
   <style>
     /* 必需 */
-    .xxx-transition {
-      transition: all 5s ease;
+    .aa-transition {
+      transition: all 2s ease;
       height: 30px;
       padding: 10px;
       background-color: #eee;
       overflow: hidden;
     }
-
-    /* .expand-enter 定义进入的开始状态 */
-    /* .expand-leave 定义离开的结束状态 */
-    .xxx-enter, .xxx-leave {
+    /* .aa-enter 定义进入的开始状态 */
+    /* .aa-leave 定义离开的结束状态 */
+    .aa-enter, .aa-leave {
       height: 0;
       padding: 0 10px;
       opacity: 0;
@@ -24,10 +23,47 @@
 </head>
 <body>
 <div id="demo">
+  <div v-show="show" transition="aa">hello</div>
+  <button @click="show=!show">切换</button>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
+
+  Vue.transition('aa', {
+    beforeEnter: function (el) {//准备进入之前(不可见)
+      console.log('beforeEnter()')
+      el.textContent = 'beforeEnter'
+    },
+    enter: function (el) {//准备进入(不可见)
+      console.log('enter()')
+      el.textContent = 'enter'
+    },
+    afterEnter: function (el) {// 进入之后(完全可见)
+      console.log('afterEnter()')
+      el.textContent = 'afterEnter'
+    },
+    beforeLeave: function (el) { //准备开始离开之前(完全可见)
+      console.log('beforeLeave()')
+      el.textContent = 'beforeLeave'
+    },
+    leave: function (el) {//准备开始离开(完全可见)
+      console.log('leave()')
+      el.textContent = 'leave'
+    },
+    afterLeave: function (el) {//离开之后(隐藏了)
+      console.log('afterLeave()')
+      el.textContent = 'afterLeave'
+    }
+  })
+
+  new Vue({
+    el : '#demo',
+    data : {
+      show: true
+    }
+  });
+
 
 </script>
 </body>
