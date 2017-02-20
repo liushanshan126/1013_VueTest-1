@@ -143,7 +143,16 @@
       ```
     * 使用指令:
       v-my-directive='xxx'
-
+* 组件的生命周期
+  * created()
+  * beforeCompile()
+  * compiled()
+  * ready()
+  * beforeDestroy()
+  * destroyed()
+  * 一般可以在created()/ready()中启动定时器, 发送ajax请求等异步操作
+  * 在beforeDestroy()中取消定时器等收尾的工作
+  
 ## git常用命令
   * git init: 初始化本地仓库(.git文件)
   * git add *
